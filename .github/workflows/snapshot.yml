@@ -1,0 +1,17 @@
+name: Create a branch for upstream syncing
+
+# Trigger the action either manually, or when a new release tag is created
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  # Create PR to master
+  deploySnapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move to integration/snapshot branch
+        run: |
+          echo "Teooo"
